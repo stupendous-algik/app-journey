@@ -1,8 +1,5 @@
 function normalizePhone(input) {
-  // Remove spaces and plus sign
   let p = input.replace(/\s+/g, '').replace(/^\+/, '');
-
-  // Accept 07..., 01..., 2547..., 2541...
   if (/^(07|01)\d{8}$/.test(p)) {
     return '254' + p.slice(1);
   }
@@ -24,8 +21,8 @@ function renderReminders() {
   list.innerHTML = reminders
     .map(r => `
       <div class="reminder-item">
-        <strong>${r.phone}</strong><br>
-        Amount: Ksh ${r.amount}
+        <div class="reminder-phone">${r.phone}</div>
+        <div class="reminder-meta">Amount: <span class="reminder-amount">Ksh ${r.amount}</span></div>
       </div>
     `)
     .join('');
@@ -33,15 +30,12 @@ function renderReminders() {
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('reminder-form');
-
   renderReminders();
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-
     const phoneInput = document.getElementById('phone').value.trim();
     const amountInput = document.getElementById('amount').value.trim();
-
     const phone = normalizePhone(phoneInput);
 
     if (!phone) {
@@ -56,9 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const reminders = JSON.parse(localStorage.getItem('reminders') || '[]');
     reminders.push({ phone, amount: Number(amountInput) });
-
     localStorage.setItem('reminders', JSON.stringify(reminders));
-
     form.reset();
     renderReminders();
   });
