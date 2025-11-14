@@ -6,6 +6,17 @@ label{margin-bottom:4px}
 input{padding:10px;border:1px solid #ccc;border-radius:6px}
 button{padding:12px 16px;border:1px solid #ccc;border-radius:6px;cursor:pointer;margin-top:10px;width:100%;background:#fff}
 #reminder-list{margin-top:20px}
-.reminder-item{padding:12px;border:1px solid #eee;margin-bottom:10px;border-radius:6px;display:flex;justify-content:space-between;align-items:center}
-.reminder-amount{color:#d32f2f;font-weight:600}
+.reminder-item{padding:12px;border:1px solid #eee;margin-bottom:10px;border-radius:6px;display:flex;justify-content:space-between;align-items:center;transition:background 0.4s ease}
 .reminder-phone{font-family:monospace}
+.reminder-amount{color:#d32f2f;font-weight:600}
+
+/* Flash animation */
+.flash {
+  background: #ffe5e5 !important;
+  animation: flashAnim 0.6s ease-out;
+}
+
+@keyframes flashAnim {
+  0%   { background: #ffcccc; }
+  100% { background: white; }
+}
