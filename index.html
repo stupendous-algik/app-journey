@@ -7,10 +7,30 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="container">
-    <h1 id="greeting">Hello, Nairobi 👋</h1>
-    <p id="local-time">Local time: <span></span></p>
-    <button id="refresh">Refresh time</button>
+  <main class="container" role="main">
+    <div class="topbar">
+      <div class="brand">Hello Nairobi</div>
+      <div class="controls">
+        <label class="lang-switch">
+          <select id="lang-select" aria-label="Choose language">
+            <option value="en">English</option>
+            <option value="sw">Kiswahili</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <section class="content">
+      <h1 id="greeting">Hello, Nairobi 👋</h1>
+      <p id="local-time">Local time: <span></span></p>
+      <div class="actions">
+        <button id="refresh">Refresh time</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Built for learning — Day 2: responsive + Kiswahili toggle</small>
+    </footer>
   </main>
   <script src="script.js"></script>
 </body>
