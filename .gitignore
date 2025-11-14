@@ -1,4 +1,17 @@
+# System / editor
 .DS_Store
-node_modules/
 .vscode/
+
+# Node
+node_modules/
+npm-debug.log
+
+# Expo / build
+.expo/
+.expo-shared/
+web-build/
+.expo/*
+*.expo
+
+# OS/temp
 *.log
